@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<link rel='stylesheet' type='text/css' href='css/pNav.css' />
+<script language='javascript'  type="text/javascript" src='lib/jquery-1.7.2.js'></script>
+<script language='javascript'  type="text/javascript" src='lib/underscore.js'></script>
+<script language='javascript'  type="text/javascript" src='lib/backbone.js'></script>
+<script language='javascript'  type="text/javascript" src='js/pNav.js'></script>
+<title>pyrineNav</title>
+<style>
+
+body { padding: 0; margin: 0; font: 18px/24px; text-align: center; background: #E1ECF0; letter-spacing: 0.3px; }
+
+  .container { margin: 0px auto 40px auto;  width: 800px; margin-top: 40px; padding: 0px 30px 20px 30px; text-align: left; text-shadow: 1px 1px 0 #fff; background: #FFFFFF; border: 1px solid #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; box-shadow: 2px 2px 5px #333; }
+
+    .title { margin: 15px 0; font-size: 26px; clear: both; }
+    .content { padding: 0 0 0 26px; }
+    .button { display: inline-block; padding: 5px 15px; background: #F4F4F4; background: -webkit-linear-gradient(#F4F4F4, #d4d7d7); background: -o-linear-gradient(#F4F4F4, #d7d7d7); background: -moz-linear-gradient(#F4F4F4, #d7d7d7); border: 1px solid #bbb; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; box-shadow: 0 2px 3px #aaa; -webkit-box-shadow: 0 2px 3px #aaa; -moz-box-shadow: 0 2px 3px #aaa; text-shadow: 0 1px 0 #fff; cursor: pointer; margin-top: 15px;}
+    .button {  zoom: 1; *display: inline;}
+      .button:hover { background: #d7d7d7; background: -webkit-linear-gradient(#d7d7d7, #d7d7d7); background: -o-linear-gradient(#d7d7d7, #d7d7d7); background: -moz-linear-gradient(#d7d7d7, #d7d7d7); }
+
+    .print {
+        padding: 15px; background: #444; color: #FFFFFF; text-shadow: none; line-height: 24px;
+    }
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+      <div class="title">关于</div>
+      <div class="content">面包屑导航条</div>
+      <div class="title">作者</div>
+      <div class="content">pyrine.law@gmail.com</div>
+      <div class="title">源代码</div>
+      <div class="content"><a href="https://github.com/pyrinelaw/pNav">https://github.com/pyrinelaw/pNav</a></div>
+      <div class="title">示例</div>
+      <div class="content">
+        
+        <div id="test"></div>
+        <script language="javascript" type="text/javascript">
+          var items = [
+              {label: 'pNavi'}, 
+              {label: '点击该面包屑', cb: function(label) {
+                  alert(label);
+                }
+              }, 
+              {label: '面包屑导航条'}, 
+              {label: '当前位置'}
+            ];
+          var nav = new pNav({items: items});
+          $("#test").append(nav.$el);
+          console.warn(nav);
+        </script>
+        <pre class="print" >
+ var items = [
+        {label: 'pNavi'}, 
+        {label: '点击该面包屑', cb: function(label) {
+              alert(item);
+            }
+        }, 
+        {label: '面包屑导航条'}, 
+        {label: '当前位置'}
+    ];
+var nav = new pNav({items: items});
+</pre>  
+               
+      </div>
+
+      <div class="title">文档说明:</div>
+      <div class="content">
+        <pre class="print" >
+var nav = new pNav({
+    items: [
+        {   label: 面包屑显示内容,
+            cb: function(label){
+                // 调用func
+            }
+        }
+      ],  // 各级内容
+    maxLevelCount: 4 // 最多显示级数
+});
+$el // 获取元素
+addClass(), removeClass(),hove(), hide() ... // 参考jQuery
+add(item, index, enable) // 添加选项: 内容, 位置, 是否覆盖
+back()  // 返回上一级
+beforeChange(cb)  // 导航内容改变前触发func
+change(cb)  // 导航内容改变触发func
+destroy() // 销毁
+enableItem(index, enable) // 销毁某一级导航： 索引, 是否消除， false隐藏
+forward() // 返回导航上一次位置
+has(arg) // 检测是否存在对应的导航, 参数可为索引或字符串
+item(index) // 根据索引返回一级数据
+items() // 返回所有数据
+lastDepth() // 上一次的深度
+max() // 返回最多显示级数
+navi(arg) // 改变导航内容: items值
+next() // 下一步 与forward相反
+update(label, newLabel) // 跟新其中一个导航
+reset() // 重置
+size() // 返回导航栏长度
+</pre>
+      </div>
+      
+      
+  </div>
+
+</body>
+
+</html>
